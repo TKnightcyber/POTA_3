@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    fragment@0 {
+        target = <&amba>;
+        __overlay__ {
+            #address-cells = <2>;
+            #size-cells = <2>;
+
+            /* Replace 'pota_ip' and the addresses below with your Vivado values */
+            pota_ip: pota_module@a0000000 {
+                compatible = "generic-uio"; 
+                /* Format: <UpperBase LowerBase UpperSize LowerSize> */
+                reg = <0x0 0xA000_0000 0x0 0x10000>; 
+            };
+        };
+    };
+};
